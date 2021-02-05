@@ -8,7 +8,6 @@ client = commands.Bot(command_prefix=".")
 async def on_ready():
     print(f'{client.user.name} has connected to Discord!')
     await client.change_presence(activity=discord.Game('.kurumus // .bogazim'))
-
 @client.command()
 async def kurumus(ctx):
     voiceChannel = ctx.author.voice.channel
@@ -24,16 +23,12 @@ async def kurumus(ctx):
     }
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download(['https://www.youtube.com/watch?v=oDEQ9Y6X0i0'])
-    for file in os.listdir("./"):
-        if file.endswith(".mp3"):
-            os.rename(file, "song.mp3")
-    voice.play(discord.FFmpegPCMAudio("song.mp3"))
-
+    voice.play(discord.FFmpegPCMAudio("Gazapizm - Unutulacak Dünler-oDEQ9Y6X0i0.mp3"))
 @client.command()
 async def bogazim(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
     voice.stop()
-    voice.play(discord.FFmpegPCMAudio("song.mp3")) 
+    voice.play(discord.FFmpegPCMAudio("Gazapizm - Unutulacak Dünler-oDEQ9Y6X0i0.mp3")) 
 @client.command()
 async def sg(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
